@@ -14,4 +14,12 @@ public class Test1 {
 		
 		System.out.println("checkout git");
 	}
+
+	@Test
+	public void test3() {
+		
+		System.out.println("checkout git 2");
+	}
+	
+	
 }
