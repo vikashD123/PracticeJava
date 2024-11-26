@@ -8,4 +8,10 @@ public class Test1 {
     public void chekest() {
      System.out.println("how are you ");	
     }
+	
+	@Test
+	public void test2() {
+		
+		System.out.println("checkout git");
+	}
 }
