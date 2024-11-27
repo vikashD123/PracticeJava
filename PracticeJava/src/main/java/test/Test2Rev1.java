@@ -429,6 +429,55 @@ public class Test2Rev1 {
 	else {
 		System.out.println("value is not displayed");
 	}
-
-	}	
+	}
+	
+	@Test(enabled=false)
+	public void testActionRightClick() {
+		
+		WebDriverManager.chromedriver().setup();
+		
+		 WebDriver driver=new ChromeDriver();
+			
+		 driver.manage().window().maximize();
+		 
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		 
+		 driver.get("https://swisnl.github.io/jQuery-contextMenu/demo/accesskeys.html");
+		 
+		 WebElement val=driver.findElement(By.xpath("//span[text()='right click me']"));
+		 
+		 Actions act=new Actions(driver);
+		 
+		 act.contextClick(val).perform();
+		 
+		 driver.findElement(By.xpath("//span[text()='Quit']")).click();
+		 
+		 System.out.println(driver.switchTo().alert().getText());
+		 
+		 driver.switchTo().alert().accept();
+			
+	}
+	@Test
+	public void testdoubleclick() {
+		
+		WebDriverManager.chromedriver().setup();
+		
+		 WebDriver driver=new ChromeDriver();
+			
+		 driver.manage().window().maximize();
+		 
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		 
+		driver.get("https://api.jquery.com/dblclick/");
+		
+		driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
+		
+		WebElement val=driver.findElement(By.xpath("//span[text()='Double click the block']//preceding-sibling::div"));
+		
+		Actions act=new Actions(driver);
+		
+		act.doubleClick(val).perform();
+		
+		
+	}
 }
