@@ -457,7 +457,7 @@ public class Test2Rev1 {
 		 driver.switchTo().alert().accept();
 			
 	}
-	@Test
+	@Test(enabled=false)
 	public void testdoubleclick() {
 		
 		WebDriverManager.chromedriver().setup();
@@ -478,6 +478,61 @@ public class Test2Rev1 {
 		
 		act.doubleClick(val).perform();
 		
+	}
+	
+	@Test(enabled=false)
+	public void testdraganddrop2() {
+		
+		WebDriverManager.chromedriver().setup();
+		
+		 WebDriver driver=new ChromeDriver();
+			
+		 driver.manage().window().maximize();
+		 
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		 
+		 driver.get("https://jqueryui.com/droppable/");
+		 
+		 driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
+		 
+		 WebElement src=driver.findElement(By.id("draggable"));
+		 
+		 WebElement tgt=driver.findElement(By.cssSelector("#droppable"));
+		 
+		 Actions act=new Actions(driver);
+		 
+		 act.dragAndDrop(src, tgt).perform(); 
+	}
+	@Test(enabled=false)
+	public void testdragable2() {
+		
+		WebDriverManager.chromedriver().setup();
+		
+		 WebDriver driver=new ChromeDriver();
+			
+		 driver.manage().window().maximize();
+		 
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		 
+		 driver.get("https://jqueryui.com/draggable/");
+		 
+		 driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
+		 
+		 Actions act=new Actions(driver);
+		 
+		 act.dragAndDropBy(driver.findElement(By.id("draggable")),-40,20).perform();
+		 
+	}
+	@Test
+	public void testdrag3() {
+		
+		WebDriverManager.chromedriver().setup();
+		
+		 WebDriver driver=new ChromeDriver();
+			
+		 driver.manage().window().maximize();
+		 
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		
 	}
 }
